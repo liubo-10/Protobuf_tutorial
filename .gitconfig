@@ -1,0 +1,14 @@
+
+Host gitlab
+HostName git.zerozero.cn
+User liubo00
+IdentityFile /home/liubo/00-liubo/my_project/git_config/id_rsa        
+
+ 
+Host github.com
+HostName github.com
+User liubo
+IdentityFile /home/liubo/00-liubo/my_project/git_config/github_rsa
+
+
+
