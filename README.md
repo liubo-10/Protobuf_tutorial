@@ -8,8 +8,6 @@ ssh-add    /home/liubo/00-liubo/my_project/git_config/gitlab_rsa
 
 ssh -T  git@git.zerozero.cn
 
-
-
 ## 添加密钥gihub
 
 ssh-keygen -t rsa -C liubojinzhou@sina.cn
@@ -17,8 +15,6 @@ ssh-keygen -t rsa -C liubojinzhou@sina.cn
 ssh-add    /home/liubo/00-liubo/my_project/git_config/github_rsa
 
 ssh -T git@github.com
-
-
 
 ## git设置文件
 
@@ -40,6 +36,4 @@ IdentityFile /home/liubo/00-liubo/my_project/git_config/github_rsa
 
 添加配置文件
 
-git config --file /home/liubo/00-liubo/my_project/git_config/config
-
-git config --file   ～/.gitconfig
+git config --file /home/liubo/00-liubo/my_project/git_config/.gitconfig
