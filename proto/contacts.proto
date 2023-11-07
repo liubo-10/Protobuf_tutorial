@@ -1,0 +1,8 @@
+syntax="proto3"; //消息类型命名规范：使⽤驼峰命名法，⾸字⺟⼤写。
+package contacts;
+
+//定义联系人消息
+message PeopleInfo{
+    string name=1;
+    string age=2;
+}
