@@ -11,6 +11,14 @@
 
 
 
+
+
+
+
+
+
+
+
 protoc [--proto_path=IMPORT_PATH] --cpp_out=DST_DIR path/to/file.proto
 protoc 是 Protocol Buffer 提供的命令⾏编译⼯具。
 
@@ -31,6 +39,47 @@ path/to/file.proto 要编译的.proto⽂件。
 
 protoc   --proto_path=./proto       --cpp_out=./build/proto     ./proto/contacts.proto
 
+
+
+编译 .proto 文件
+
+通过定义好的.proto文件来生成Java、Python、C++代码，需要基于.proto文件运行protocol buffer编译器protoc。
+编译命令如下：
+
+protoc --proto_path=PATH
+	   --cpp_out=DST_DIR
+	   --java_out=DST_DIR
+	   --python_out=DST_DIR
+	   path/xxx.proto
+
+    1
+    2
+    3
+    4
+    5
+
+    proto_path声明了.proto文件所在目录。如果忽略该值，则使用当前目录。如果有多个目录则可以 对–proto_path 写多次，它们将会顺序的被访问并执行导入。
+    DST_DIR声明了cpp_out、java_out、python_out 等对应生成的代码文件路径
+    最后的路径是proto文件的具体路径，还可以用*.proto编译对应路径下的所有proto文件
+
+protoc --proto_path=PATH
+	   --cpp_out=DST_DIR
+	   --java_out=DST_DIR
+	   --python_out=DST_DIR
+	   path/*.proto
+
+    1
+    2
+    3
+    4
+    5
+
+注意
+
+将–proto_path指定为绝对路径时,proto文件不能指定为相对路径。可以删除–proto_path参数(无论如何都默认为当前目录)或者都使用绝对路径
+
+
+g++ -o contacts ./src/use_contacts.cpp  ./build/proto/contacts.pb.cc -lprotobuf -std=c++11
 
 
 
