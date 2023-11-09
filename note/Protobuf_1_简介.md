@@ -22,15 +22,21 @@
 
 
 
+## 资料
+
+Protocol Buffers（英语）
+
+https://protobuf.dev/
+
 
 
 ## 简介
 
-Protocol Buffers的简称Protobuf，它由Google公司开发，并于2008年对外开源。它是一种数据描述语言，是一种轻便高效结构化数据存储格式，以 K-V 的方式来存储数据，可以用于结构化数据串行化，或者说序列化。protobuf是跨语言的，并且自带一个编译器(protoc)，只需要用protoc进行编译，就可以编译成Java、Python、C++、C#、Go等多种语言的代码，然后可以直接使用相关接口，不需要再写解析代码或其它代码。由于语言无关、平台无关、可扩展的特性，它的设计非常适合作为通讯协议数据格式，数据存储格式，RPC数据交换格式。
+Protocol Buffers的简称Protobuf，它由Google公司开发，并于2008年对外开源。它是一种语言无关、平台无关、可扩展的结构化数据构建机制，用于序列化结构化数据。
 
+protobuf自带一个编译工具(protoc)，当我们构建好数据结构后，用编译工具protoc对Protobuf文件进行编译，可以根据需要得到C++、C#、Dart、Go、Java、Kotlin、Objective-C、Python、PHP和Ruby，等多种语言的代码文件。然后可以直接使用生成的代码文件中的相关接口与变量，轻松地在各种数据流中写入和读取结构化数据，不需要再写解析代码或其它代码。
 
-
-Google的Protobuf，相比于它的前辈xml、json，它的体量更小，解析速度更快。
+相比于它的前辈xml、json，它的体量更小，解析速度更快。它的设计非常适合在通讯协议，数据存储，RPC数据交换等场景中使用。
 
 
 
@@ -50,7 +56,7 @@ protobuf的核心内容包括：
 - 扩展性、兼容性好：可以更新数据结构，而不影响和破坏原有的旧程序。
 - 使用特定：Protobuf是需要依赖通过编译生成的头文件和源文件来使用。
 
-### protobuf的优劣势
+### protobuf的优劣
 
 #### 1、优势：
 
@@ -67,9 +73,7 @@ protobuf的核心内容包括：
 
 
 
-
-
-## 安装
+## 安装Protocol编译工具
 
 ```bash
 sudo apt  install protobuf-compiler  //安装
@@ -78,52 +82,52 @@ protoc --version    //查看版本
 
 
 
-### 简单的例子
+### 一个简单的例子
 
 Protobuf中最基本的数据单元是message，是类似Go语言中结构体的存在。在message中可以嵌套message或其它的基础数据类型的成员。
 
-protobuf协议文件名后缀名为.proto
+protobuf文件名后缀名为.proto
 
 ```protobuf
 syntax = "proto3";
 package protobuf.addressbook;
 
-enum PhoneType
-{
-    MOBILE = 0;
-    HOME = 1;
-    WORK = 2;
+message SearchRequest {
+  string query = 1;
+  int32 page_number = 2;
+  int32 results_per_page = 3;
 }
-
-message Person   //定义数据结构
-{
-    optional string name = 1;
-    optional uint32 age = 2;
-    optional string email = 3; 
-    message PhoneNumber
-    {
-      optional string number = 1;
-      optional PhoneType type = 2;
-    }
-  
-    repeated PhoneNumber phone = 4;
-}
-message AddressBook          
-{ 
-    repeated Person person = 1;
-}
-
-
 ```
 
-### 标识符 
+- syntax：文件第一行的syntax字段标识使用的protobuf是哪个版本，示例表示指定本文件使用proto3语法。如果省略，protobuf编译器默认使用proto2语法。它必须是文件中非空非注释行的第一行。
 
-- syntax：文件第一行的syntax字段标识使用的protobuf是哪个版本，示例表示指定使用proto3。如果省略,protocol buffer编译器默认使用proto2语法。他必须是文件中非空非注释行的第一行。
+- message：标识一条消息。会在目标文件中自动生成一个类。
+
+- SearchRequest：该消息类型定义指定了三个字段（名称/值对），每个字段对应包含在该消息类型中的数据。每个字段都有一个名称和一个类型。
 
 - package：标识生成目标文件的包名。在C++中表示的是命名空间。示例表示生成的类和函数在protobuf命名空间的addressbook命令空间下。
 
-- enum：表示一个枚举类型。会在目标.h文件中自动生成一个枚举类型。
-- message：标识一条消息。会在目标文件中自动生成一个类。
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
