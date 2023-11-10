@@ -1,12 +1,10 @@
-# Protobuf 简介
+# 走入protobuf
 
-* 👋 Hi, I’m bliu2-10
+* 👋 Hi, I’m liubo
 * 👀 I’m interested in harmony
 * 🌱 I’m currently learning harmony
 * 💞️ I’m looking to collaborate on ...
 * 📫 How to reach me ...
-
-
 
 
 
@@ -22,17 +20,9 @@
 
 
 
-## 资料
-
-Protocol Buffers（英语）
-
-https://protobuf.dev/
-
-
-
 ## 简介
 
-Protocol Buffers的简称Protobuf，它由Google公司开发，并于2008年对外开源。它是一种语言无关、平台无关、可扩展的结构化数据构建机制，用于序列化结构化数据。
+Protocol Buffers的简称Protobuf，它由Google公司开发，并于2008年对外开源。它是一种语言无关、平台无关、可扩展的结构化数据构建机制，用于序列化结构化数据。在一些资料中也称为数据描述语言。
 
 protobuf自带一个编译工具(protoc)，当我们构建好数据结构后，用编译工具protoc对Protobuf文件进行编译，可以根据需要得到C++、C#、Dart、Go、Java、Kotlin、Objective-C、Python、PHP和Ruby，等多种语言的代码文件。然后可以直接使用生成的代码文件中的相关接口与变量，轻松地在各种数据流中写入和读取结构化数据，不需要再写解析代码或其它代码。
 
@@ -49,7 +39,7 @@ protobuf的核心内容包括：
 
 
 
-### Protobuf特点
+## Protobuf特点
 
 - 语言无关、平台无关：即Protobuf支持java、C++、Python等多种语言。
 - 高效：即比XML更小、更快、更简单。
@@ -58,14 +48,16 @@ protobuf的核心内容包括：
 
 ### protobuf的优劣
 
-#### 1、优势：
+#### 优势：
 
 1. 序列化后体积相比Json和XML很小，适合网络传输
 2. 序列化反序列化速度很快，快于Json的处理速度
 3. 消息格式升级和兼容性还不错
 4. 支持跨平台多语言
+5. 减少了二义性
+6. 生成的变量和接口更容易在编程中使用
 
-#### 2、劣势：
+#### 劣势：
 
 1. 应用不够广(相比xml和json)
 2. 二进制格式导致可读性差
@@ -73,67 +65,38 @@ protobuf的核心内容包括：
 
 
 
-## 安装Protocol编译工具
+### 数据交互xml、json、protobuf格式比较
 
-```bash
-sudo apt  install protobuf-compiler  //安装
-protoc --version    //查看版本
-```
+ProtoBuf和json或者xml，从一定意义上来说他们的作用是一样的。
+
+1、json: 一般的web项目中，最流行的主要还是json。因为浏览器对于json数据支持非常好，有很多内建的函数支持。
+
+2、xml: 在webservice中应用最为广泛，但是相比于json，它的数据更加冗余，因为需要成对的闭合标签。json使用了键值对的方式，不仅压缩了一定的数据空间，同时也具有可读性。
+
+3、protobuf:是后起之秀，适合高性能，对响应速度有要求的数据传输场景。因为profobuf是二进制数据格式，需要编码和解码。数据本身不具有可读性。因此只能反序列化之后得到真正可读的数据。
 
 
 
-### 一个简单的例子
+## protobuf和gRPC的关系
 
-Protobuf中最基本的数据单元是message，是类似Go语言中结构体的存在。在message中可以嵌套message或其它的基础数据类型的成员。
-
-protobuf文件名后缀名为.proto
-
-```protobuf
-syntax = "proto3";
-package protobuf.addressbook;
-
-message SearchRequest {
-  string query = 1;
-  int32 page_number = 2;
-  int32 results_per_page = 3;
-}
-```
-
-- syntax：文件第一行的syntax字段标识使用的protobuf是哪个版本，示例表示指定本文件使用proto3语法。如果省略，protobuf编译器默认使用proto2语法。它必须是文件中非空非注释行的第一行。
-
-- message：标识一条消息。会在目标文件中自动生成一个类。
-
-- SearchRequest：该消息类型定义指定了三个字段（名称/值对），每个字段对应包含在该消息类型中的数据。每个字段都有一个名称和一个类型。
-
-- package：标识生成目标文件的包名。在C++中表示的是命名空间。示例表示生成的类和函数在protobuf命名空间的addressbook命令空间下。
-
-  
+protobuf可以把结构体序列化为二进制，也可以把对应二进制反序列化回结构体。说白了protobuf单纯就是做编解码。用protobuf可以把程序中的一些对象序列化，然后存为本地文件，过一会儿再读取文件，然后恢复出那些对象。
+grpb是网络通信协议，在网络通信时，会发送和接收数据。收发的数据使用protobuf进行编解码（当然它也可以使用其它的编解码方式，比如thrift、JSON，也可以自己造轮子，比如Go的gob）当然grpc作为一个rpc框架，数据的编解码只是其中一小部分，还有很多其它的工作需要处理，参见各种其它框架。
 
 
 
 
 
+## 相关资料
+
+官网教程
+
+https://protobuf.dev/
 
 
 
+github仓
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+https://github.com/protocolbuffers/protobuf
 
 
 

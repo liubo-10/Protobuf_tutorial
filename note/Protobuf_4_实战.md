@@ -1,12 +1,60 @@
 # Protobuf 实战
 
-* 👋 Hi, I’m bliu2-10
+* 👋 Hi, I’m liubo
 * 👀 I’m interested in harmony
 * 🌱 I’m currently learning harmony
 * 💞️ I’m looking to collaborate on ...
 * 📫 How to reach me ...
 
 
+
+## 安装Protocol编译工具
+
+### 命令行安装
+
+```shell
+sudo apt update
+sudo apt upgrade
+sudo apt install libprotobuf-dev protobuf-compiler  
+```
+
+
+
+### 安装包安装
+
+下载地址： https://github.com/protocolbuffers/ProtoBuf/releases
+
+下载界面
+
+
+
+![protobuf下载界面](/home/liubo/00-liubo/project_my/Protobuf_tutorial/picture/protobuf下载界面.png)
+
+
+
+linux版本
+
+protoc-25.0-linux-x86_64.zip
+
+windows版本
+
+protoc-25.0-win64.zip
+
+
+
+不需要编译，只需将下载得到的可执行文件protoc所在的bin目录加到我们电脑的环境变量中。
+
+
+
+```shell
+protoc --version                     //查看版本
+```
+
+
+
+### .pb.h文件
+
+.pb.h里生成了一个协议数据结构体与操作该结构体的一些接口，有几个message就生成几个类，包括组包与解包（序列化与反序列化）接口，对应的.pb.cc里就是这些接口对应的实现。
 
 
 
@@ -57,7 +105,7 @@ protoc --proto_path=PATH
     3
     4
     5
-
+    
     proto_path声明了.proto文件所在目录。如果忽略该值，则使用当前目录。如果有多个目录则可以 对–proto_path 写多次，它们将会顺序的被访问并执行导入。
     DST_DIR声明了cpp_out、java_out、python_out 等对应生成的代码文件路径
     最后的路径是proto文件的具体路径，还可以用*.proto编译对应路径下的所有proto文件
