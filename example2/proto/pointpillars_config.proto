@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message PointPillarsConfig {
+  string pfe_file = 1;
+  string rpn_file = 2;
+}
