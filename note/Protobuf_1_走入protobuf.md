@@ -1,4 +1,4 @@
-# 走入protobuf
+# 走入
 
 * 👋 Hi, I’m liubo
 * 👀 I’m interested in harmony
@@ -65,7 +65,7 @@ protobuf的核心内容包括：
 
 
 
-### 数据交互xml、json、protobuf格式比较
+## 数据交互xml、json、protobuf格式比较
 
 ProtoBuf和json或者xml，从一定意义上来说他们的作用是一样的。
 
@@ -86,6 +86,14 @@ grpb是网络通信协议，在网络通信时，会发送和接收数据。收�
 
 
 
+
+
+
+
+
+
+
+
 ## 相关资料
 
 官网教程
@@ -100,6 +108,17 @@ https://github.com/protocolbuffers/protobuf
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ---
 ---
 ---
@@ -112,4 +131,18 @@ https://github.com/protocolbuffers/protobuf
 ---
 ---
 ---
+---
+---
+---
+---
+---
+---
+---
+---
+
+
+
+
+
+
 
