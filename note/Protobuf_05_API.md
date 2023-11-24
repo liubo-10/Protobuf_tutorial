@@ -146,7 +146,60 @@ bool ParseFromIstream(istream* input); //从给定的C++ istream解析消息。
 
 
 
+## 可能需要的函数
 
+### CopyFrom
+
+消息拷贝函数
+
+
+
+```c
+void CopyFrom(const Message& from)
+```
+
+
+
+实例：
+
+```protobuf
+message Param {
+  optional string name = 1;
+  optional ParamType type = 2;
+  optional string type_name = 3;
+  oneof oneof_value {
+    bool bool_value = 4;
+    int64 int_value = 5;
+    double double_value = 6;
+    string string_value = 7;
+  }
+  optional bytes proto_desc = 8;
+}
+
+
+```
+
+
+
+
+
+```c++
+class Parameter {
+ public:
+   /**
+
+   * @brief copy constructor
+     */
+       explicit Parameter(const Parameter& parameter);
+
+private:
+  Param param_;
+}
+
+Parameter::Parameter(const Parameter& parameter) {
+  param_.CopyFrom(parameter.param_);
+}
+```
 
 
 
