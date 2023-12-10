@@ -73,6 +73,8 @@ protoc  --cpp_out=./  --cpp_opt=paths=source_relative  *.proto
 
 输出的文件名是把protobuf文件的扩展名.proto替换为.pb.c或.pb.h。
 
+使用*.proto，必须标明完整路径。
+
 
 
 ### --proto_path 参数
@@ -87,6 +89,8 @@ protoc  --cpp_out=./  --cpp_opt=paths=source_relative  *.proto
 --cpp_out=OUT_PATH
 
 - 编译工具protoc会将生成的C++代码输出到参数指定的位置即OUT_PATH中。
+- OUT_PATH必须存在
+- 
 
 ### --cpp_opt 参数
 
