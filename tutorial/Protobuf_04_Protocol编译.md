@@ -64,7 +64,7 @@ libprotoc 3.12.4
 使用以下命令来编译.proto文件
 
 ```shell
-protoc  --cpp_out=./  --go_opt=paths=source_relative  *.proto
+protoc  --cpp_out=./  --cpp_opt=paths=source_relative  *.proto
 ```
 
 命令将当前目录中的所有.proto文件进行编译并生成C++代码。
