@@ -92,28 +92,12 @@ protoc  --cpp_out=./  --cpp_opt=paths=source_relative  *.proto
 - OUT_PATH必须存在
 - 
 
-### --cpp_opt 参数
-
-protobuf编译提供了--cpp_opt参数来为其指定参数，可以设置多个：
-
-- paths=import：生成的文件会按cpp_package路径来生成，当然是在--cpp_out指定的目录
-
-  例如，cpp_out/$cpp_package/pb_filename.pb.h。如果未指定路径标志，这就是默认输出模式
-
-- paths=source_relative：输出文件与输入文件放在相同的目录中
-
-  例如，一个protos/buzz.proto输入文件会产生一个位于protos/的输出文件buzz.pb.h。
-
-- module=$PREFIX：输出文件放在以C++包的导入路径命名的目录中，但是从输出文件名中删除了指定的目录前缀。
-
-  例如，输入文件 pros/buzz.proto，其导入路径为example.com/project/protos/fizz 并指定example.com/project为module前缀，结果会产生一个名为pros/fizz/buzz.pb.h的输出文件。在module路径之外生成任何C++包都会导致错误，此模式对于将生成的文件直接输出到C++模块非常有用。
-
 
 
 ## 参数使用示例
 
 ```shell
-protoc --proto_path=src --cpp_out=out --cpp_opt=paths=source_relative foo.proto bar.proto
+protoc --proto_path=src --cpp_out=out  foo.proto bar.proto
 ```
 
 假设src文件夹中存有文件foo.prot和bar.proto。编译工具将从src目录中读取输入文件foo.prot和bar.proto，并将输出文件foo.pb.c、foo.pb.h、bar.pb.c、bar.pb.h写入out目录。如果需要，编译器会自动创建嵌套的输出子目录，但不会创建输出目录本身。
