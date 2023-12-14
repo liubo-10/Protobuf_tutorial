@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# complile.sh
+
 # 源文件路径 ./proto
 # 目标文件路径 ./build/proto
 
