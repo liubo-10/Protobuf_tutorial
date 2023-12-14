@@ -7,7 +7,8 @@ project (demo)
 
 # execute_process(COMMAND echo -e "\e[1;35m ------complie begain------\e[0m \n")
 execute_process(COMMAND echo -e "------project:${PROJECT_NAME} complie begain------\n")
-execute_process(COMMAND ./complile.sh)
+# 注意路径
+execute_process(COMMAND ../complile.sh)
 
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
