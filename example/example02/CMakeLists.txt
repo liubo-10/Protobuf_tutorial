@@ -6,16 +6,11 @@ execute_process(COMMAND echo -e "------project:${PROJECT_NAME} complie begain---
 message("------project:${PROJECT_NAME} complie begain------\n")
 
 
-
 set(PROTOBUF_PATH    ${PROJECT_SOURCE_DIR}/../../protobuf)
 
 
-
-
-
-
 # 添加库
-find_library(PROTOBUF_LIB protobuf HINTS ${PROJECT_SOURCE_DIR}/../lib)
+find_library(PROTOBUF_LIB protobuf HINTS  ${PROTOBUF_PATH}/lib)
 
 
 # 编译protobuf
@@ -24,7 +19,7 @@ execute_process(COMMAND ${PROJECT_SOURCE_DIR}/proto/complile.sh)
 # include
 include_directories(${PROJECT_SOURCE_DIR}/proto
                     ${PROJECT_SOURCE_DIR}/src
-                    ${PROJECT_SOURCE_DIR}/../include
+                    ${PROTOBUF_PATH}/include
                    )
 
 # src

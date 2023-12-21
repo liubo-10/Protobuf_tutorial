@@ -12,5 +12,10 @@
 # 注意路径
 echo "---proto---"
 
-protoc --experimental_allow_proto3_optional --proto_path=../proto  --cpp_out=../proto   ../proto/addressbook.proto
+
+PROTOBUF_PATH=~/00-liubo/project_my/Protobuf_tutorial/protobuf/bin
+
+
+$PROTOBUF_PATH/protoc --experimental_allow_proto3_optional --proto_path=../proto  --cpp_out=../proto   ../proto/addressbook.proto
+
 
