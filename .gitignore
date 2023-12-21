@@ -16,6 +16,7 @@
 
 build/
 bin/
+protobuf/lib/
 
 github_rsa.pub
 github_rsa
