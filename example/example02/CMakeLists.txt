@@ -2,11 +2,11 @@ cmake_minimum_required (VERSION 2.8)
 
 project (demo)
 
-execute_process(COMMAND echo -e "------project:${PROJECT_NAME} complie begain------\n")
 message("------project:${PROJECT_NAME} complie begain------\n")
 
-
-set(PROTOBUF_PATH    ${PROJECT_SOURCE_DIR}/../../protobuf)
+# 定义变量
+# PROTOBUF_PATH：protobuf目录
+set(PROTOBUF_PATH   ${PROJECT_SOURCE_DIR}/../../protobuf)
 
 
 # 添加库
@@ -22,7 +22,7 @@ include_directories(${PROJECT_SOURCE_DIR}/proto
                     ${PROTOBUF_PATH}/include
                    )
 
-# src
+# src源文件
 aux_source_directory(${PROJECT_SOURCE_DIR}/proto   PROTO_LIST)
 aux_source_directory(${PROJECT_SOURCE_DIR}/src     SRC_LIST)
 
@@ -30,7 +30,7 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/src     SRC_LIST)
 # output 路径
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
-# 生成可执行文件
+# 可执行文件生成
 add_executable(main ${SRC_LIST}  ${PROTO_LIST})
 
 
