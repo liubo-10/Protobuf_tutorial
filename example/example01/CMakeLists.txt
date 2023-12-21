@@ -10,7 +10,9 @@ execute_process(COMMAND echo -e "------project:${PROJECT_NAME} complie begain---
 # 注意路径
 execute_process(COMMAND ../proto/complile.sh)
 
-set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+
+
+set ( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 
 

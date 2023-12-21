@@ -57,14 +57,14 @@ libprotoc 3.12.4
 
 
 
-## 编译工具使用
 
-### 编译命令
+
+## 编译命令
 
 使用以下命令来编译.proto文件
 
 ```shell
-protoc  --cpp_out=./  --cpp_opt=paths=source_relative  *.proto
+protoc  --cpp_out=./  --cpp_opt=paths=source_relative  path/*.proto
 ```
 
 命令将当前目录中的所有.proto文件进行编译并生成C++代码。
@@ -73,7 +73,7 @@ protoc  --cpp_out=./  --cpp_opt=paths=source_relative  *.proto
 
 输出的文件名是把protobuf文件的扩展名.proto替换为.pb.c或.pb.h。
 
-使用*.proto，必须标明完整路径。
+使用*.proto，必须标明路径。
 
 
 
@@ -81,26 +81,33 @@ protoc  --cpp_out=./  --cpp_opt=paths=source_relative  *.proto
 
 --proto_path=IMPORT_PATH
 
-- IMPORT_PATH是.proto文件所在的路径，如果省略则默认当前目录。
+- IMPORT_PATH是被编译的.proto文件所在的目录。
+- 如果省略则在当前目录搜索。
 - 如果有多个目录则可以多次调用--proto_path，它们将会顺序的被访问并执行导入。
+- 可简写成 -IIMPORT_PATH。
+
+
 
 ### --cpp_out 参数
 
---cpp_out=OUT_PATH
+--cpp_out=DST_DIR
 
-- 编译工具protoc会将生成的C++代码输出到参数指定的位置即OUT_PATH中。
-- OUT_PATH必须存在
-- 
+- 编译生成C++代码。
+- DST_DIR编译后生成的文件存放目录。
+- DST_DIR必须存在。
+- 如果需要，编译器会自动创建嵌套的输出子目录，但不会创建输出目录本身。
+- --java_out=DST_DIR 编译生成java代码
+- --python_out=DST_DIR 编译生成python代码
 
 
 
-## 参数使用示例
+### 参数使用示例
 
 ```shell
 protoc --proto_path=src --cpp_out=out  foo.proto bar.proto
 ```
 
-假设src文件夹中存有文件foo.prot和bar.proto。编译工具将从src目录中读取输入文件foo.prot和bar.proto，并将输出文件foo.pb.c、foo.pb.h、bar.pb.c、bar.pb.h写入out目录。如果需要，编译器会自动创建嵌套的输出子目录，但不会创建输出目录本身。
+假设src文件夹中存有文件foo.prot和bar.proto。编译工具将从src目录中读取文件foo.prot和bar.proto，进行编译。将输出文件foo.pb.cpp、foo.pb.h、bar.pb.cpp、bar.pb.h写入out目录。
 
 
 

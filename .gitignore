@@ -18,12 +18,6 @@ build/
 bin/
 protobuf/lib/
 
-github_rsa.pub
-github_rsa
-gitlab_rsa
-gitlab_rsa.pub
-
-
 
 # 忽略 doc/notes.txt, 不包括 doc/server/arch.txt
 #doc/*.txt
