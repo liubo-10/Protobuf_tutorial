@@ -12,25 +12,9 @@
 
 
 
-
-
 ## 编译配置
 
 编写shell文件，自动进行protobuf编译
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -54,9 +38,11 @@ $PROTOBUF_PATH/protoc  -Iproto  --cpp_out=proto   people_info.proto
 
 
 
+Cmake中调用complile.sh 
 
-
-
+```cmake
+execute_process(COMMAND   complile.sh)
+```
 
 
 
