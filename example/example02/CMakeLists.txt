@@ -34,5 +34,5 @@ set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 add_executable(main ${SRC_LIST}  ${PROTO_LIST})
 
 
-target_link_libraries (main ${PROTOBUF_LIB})
-
+# 链接库
+target_link_libraries(main ${PROTOBUF_LIB})

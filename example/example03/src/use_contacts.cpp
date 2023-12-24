@@ -1,6 +1,10 @@
 #include <iostream>
+#include <string>
 #include "../build/proto/contacts.pb.h"
-using namespace std;
+
+using std::cout;
+using std::endl;
+using std::string;
 
 int main()
 {
@@ -23,6 +27,9 @@ int main()
         // 打印序列化结果
         cout << "序列化后的 people_str: " << people_str << endl;
     }
+
+    cout << "----------------------------------" << endl;
+
     {
         contacts::PeopleInfo people;
         // 调⽤反序列化⽅法，读取string中存放的⼆进制序列，并反序列化出对象
