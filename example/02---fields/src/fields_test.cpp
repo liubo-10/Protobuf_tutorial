@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "../build/proto/contacts.pb.h"
+#include "../build/proto/basic.pb.h"
 
 using std::cout;
 using std::endl;

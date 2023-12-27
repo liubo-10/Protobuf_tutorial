@@ -16,6 +16,6 @@ mkdir ../build/proto
 
 PROTOBUF_PATH=~/00-liubo/project_my/Protobuf_tutorial/protobuf/bin
 
-$PROTOBUF_PATH/protoc -I../proto  --cpp_out=../build/proto   ../proto/contacts.proto
+$PROTOBUF_PATH/protoc -I../proto  --cpp_out=../build/proto   ../proto/basic.proto
 
 
