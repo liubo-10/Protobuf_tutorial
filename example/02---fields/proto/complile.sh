@@ -12,10 +12,10 @@
 # 注意路径
 echo "------------proto-------------"
 
-mkdir ../build/proto
+mkdir -p ../build/proto
 
+# 定义变量
 PROTOBUF_PATH=~/00-liubo/project_my/Protobuf_tutorial/protobuf/bin
+option=--experimental_allow_proto3_optional
 
-$PROTOBUF_PATH/protoc -I../proto  --cpp_out=../build/proto   ../proto/basic.proto
-
-
+$PROTOBUF_PATH/protoc $option -I../proto --cpp_out=../build/proto ../proto/basic.proto

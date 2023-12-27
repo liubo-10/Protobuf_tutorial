@@ -12,36 +12,36 @@ int main()
     // compatible with the version of the headers we compiled against.
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    string people_str;
-    { 
-        // .proto⽂件声明的package，通过protoc编译后，会为编译⽣成的C++代码声明同名的命名空间
-        // 其范围是在.proto ⽂件中定义的内容
-        contacts::PeopleInfo people;
-        people.set_age("20");
-        people.set_name("张三");
-        // 调⽤序列化⽅法，将序列化后的⼆进制序列存⼊string中
-        if (!people.SerializeToString(&people_str))
-        {
-            cout << "序列化联系⼈失败." << endl;
-        }
-        // 打印序列化结果
-        cout << "序列化后的 people_str: " << people_str << endl;
-    }
+    basic::MyNumber number;
 
-    cout << "----------------------------------" << endl;
+    // 获取 opt_number()
+    cout << "----------------默认值------------------" << endl;
+    cout << "opt_number: " << number.opt_number() << endl;
+    cout << "imp_number: " << number.imp_number() << endl;
 
-    {
-        contacts::PeopleInfo people;
-        // 调⽤反序列化⽅法，读取string中存放的⼆进制序列，并反序列化出对象
-        if (!people.ParseFromString(people_str))
-        {
-            cout << "反序列化出联系⼈失败." << endl;
-        }
-        // 打印结果
-        cout << "反序列化得到的people:" << endl;
-        cout << "Parse age: " << people.age() << endl;
-        cout << "Parse name: " << people.name() << endl;
-    }
+    // 储存 set_opt_number()
+    number.set_opt_number(20);
+    number.set_imp_number(40);
+
+    cout << "----------------储存值------------------" << endl;
+    cout << "opt_number: " << number.opt_number() << endl;
+    cout << "imp_number: " << number.imp_number() << endl;
+
+    cout << "----------------判断值------------------" << endl;
+    cout << "has_opt_number: " << number.has_opt_number() << endl;
+    cout << "has_imp_number: " << number.has_imp_number() << endl;
+
+    // 清除 set_opt_number()
+    number.clear_opt_number(20);
+    number.clear_imp_number(40);
+
+    cout << "----------------清除值------------------" << endl;
+    cout << "opt_number: " << number.opt_number() << endl;
+    cout << "imp_number: " << number.imp_number() << endl;
+
+    cout << "----------------判断值------------------" << endl;
+    cout << "has_opt_number: " << number.has_opt_number() << endl;
+    cout << "has_imp_number: " << number.has_imp_number() << endl;
 
     return 0;
 }

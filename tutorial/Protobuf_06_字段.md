@@ -60,7 +60,7 @@ optional int32 foo = 1;
 int32 foo = 1;  // no field label specified, defaults to implicit presence.
 ```
 
-编译器将生成以下访问器方法：
+编译器将生成以下访问器方法：(int32 foo)
 
 - int32 foo（）const：
 
@@ -74,7 +74,7 @@ int32 foo = 1;  // no field label specified, defaults to implicit presence.
 
   清除字段的值。调用此函数后，foo（）将返回0。
 
-
+缺少has_foo()
 
 对于其他数值字段类型（包括bool），根据标量值类型表，将int32替换为相应的C++类型。
 
