@@ -59,11 +59,6 @@ message SearchRequest {
 - optional：表示该字段可以有两种状态。
   - 该字段被设置，包含一个可以清晰准确的从二进制格式解析得到的值，会被序列化。
   - 该字段没有被设置，会返回一个默认值，不会被序列化。也可以自定义默认值。如果没有自定义默认值，会用系统默认值。
-- 
-
-
-
-
 
 - singular：消息中可以包含该字段零次或⼀次（不超过⼀次）。
 - required：该字段必须给值，不能为空。否则message被认为是未初始化的。如果试图建立一个未初始化的message将会抛出RuntimeException异常，解析未初始化的message会抛出IOException异常。 (仅适用proto2)

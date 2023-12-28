@@ -26,7 +26,6 @@
 
 ```protobuf
 optional int32 foo = 1;
-required int32 foo = 1;
 ```
 
 编译器将生成如下访问器方法：
@@ -56,11 +55,10 @@ required int32 foo = 1;
 ### 隐式数值字段 (proto3)
 
 ```protobuf
-optional int32 foo = 1;
 int32 foo = 1;  // no field label specified, defaults to implicit presence.
 ```
 
-编译器将生成以下访问器方法：(int32 foo)
+编译器将生成以下访问器方法：
 
 - int32 foo（）const：
 
@@ -77,6 +75,112 @@ int32 foo = 1;  // no field label specified, defaults to implicit presence.
 缺少has_foo()
 
 对于其他数值字段类型（包括bool），根据标量值类型表，将int32替换为相应的C++类型。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### optional 字符串字段
+
+```protobuf
+optional string foo = 1;
+```
+
+编译器将生成以下访问器方法：
+
+- bool has_foo（）const：
+
+  如果设置了字段，则返回true。
+
+- const string& foo（）const：
+
+  返回字段的当前值。如果未设置该字段，则返回默认值。
+
+- void set_foo(const string& value)：
+
+  设置字段的值。调用此函数后，has_foo（）将返回true，而foo（）则返回value的副本。
+
+- void set_foo(string&& value)（C++11及以上版本）：
+
+  从传递的字符串开始设置字段的值。调用此函数后，has_foo（）将返回true，而foo()则返回value的副本。
+
+  && 是右值引用,rvalue 译为 “read value”，指的是那些可以提供数据值的数据（不一定可以寻址，例如存储于寄存器中的数据）。
+
+- void set_foo（const char* value）：
+
+  使用C样式的以null结尾的字符串设置字段的值。调用此函数后，has_foo()将返回true，而foo()则返回value的副本。
+
+- void set_foo（const char* value，int size）：
+
+  与上面一样，但字符串大小是显式给定的，而不是通过查找null终止符字节来确定的。
+
+- string* mutable_foo（）：
+
+  返回一个指针，指向存储字段值的可变字符串对象。如果在调用之前没有设置字段，则返回的字符串将为空（不是默认值）。调用此函数后，has_foo（）将返回true，而foo（）则返回写入给定字符串的任何值。
+
+- void clear_foo（）：
+
+  清除字段的值。调用此函数后，has_foo（）将返回false，foo（）则返回默认值。
+
+- void set_allocated_foo（string* value）：
+
+  将字符串对象设置为字段，并释放前一个字段值（如果存在）。如果字符串指针不为NULL，则消息将获得已分配字符串对象的所有权，并且has_foo（）将返回true。消息可以随时自由删除分配的字符串对象，因此对该对象的引用可能会无效。否则，如果值为NULL，则行为与调用clear_foo（）相同。
+
+- string* release_foo（）：
+
+  释放字段的所有权并返回字符串对象的指针。调用此函数后，调用者将获得已分配字符串对象的所有权，has_foo（）将返回false，foo（）则返回默认值。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

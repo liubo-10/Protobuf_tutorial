@@ -12,12 +12,12 @@ int main()
     // compatible with the version of the headers we compiled against.
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    mystring::MyString teststring;
+    mystring::MyString test_string;
 
     // 获取 opt_number()
     cout << "----------------默认值------------------" << endl;
-    cout << "opt_string: " << teststring.opt_string() << endl;
-    // cout << "imp_number: " << number.imp_number() << endl;
+    cout << "opt_string: " << test_string.opt_string() << endl;
+    cout << "imp_string: " << test_string.imp_string() << endl;
 
     // // 储存 set_opt_number()
     // number.set_opt_number(20);
