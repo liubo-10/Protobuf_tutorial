@@ -3,7 +3,7 @@ package mystring;
 
 
 //定义联系人消息
-message MyNumber{
+message MyString{
     optional string  opt_string=1;  // optional
     string           imp_string=2;  // implicit
 }
