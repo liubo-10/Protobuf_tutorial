@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "../build/proto/basic.pb.h"
+#include "../build/proto/mynumber.pb.h"
 
 using std::cout;
 using std::endl;
