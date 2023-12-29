@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "../build/proto/mystring.pb.h"
+#include "../build/proto/mybytes.pb.h"
 
 using std::cout;
 using std::endl;
@@ -12,7 +12,7 @@ int main()
     // compatible with the version of the headers we compiled against.
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    mystring::MyString test_string;
+    mybytes::MyBytes test_string;
 
     // ===================================================================
     // 默认值测试

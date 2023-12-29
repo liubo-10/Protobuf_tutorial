@@ -45,7 +45,7 @@ int main()
     // opt_number() imp_number() has_opt_number()结果都为0
     // ===================================================================
     cout << "\n----------------清除值测试------------------" << endl;
-    cout << "------------------清除之前--------------------" << endl;
+    cout <<   "----------------清除之前--------------------" << endl;
     cout << "opt_number: " << testnumber.opt_number() << endl;
     cout << "imp_number: " << testnumber.imp_number() << endl;
     cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
@@ -53,7 +53,7 @@ int main()
     testnumber.clear_opt_number();
     testnumber.clear_imp_number();
     
-    cout << "------------------清除之后--------------------" << endl;
+    cout << "----------------清除之后--------------------" << endl;
     cout << "opt_number: " << testnumber.opt_number() << endl;
     cout << "imp_number: " << testnumber.imp_number() << endl;
     cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
@@ -72,7 +72,7 @@ int main()
 
     testnumber.clear_opt_number();
 
-    cout << "------------------清除之后--------------------" << endl;
+    cout << "----------------清除之后--------------------" << endl;
     cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
 
     testnumber.set_opt_number(0);

@@ -2,7 +2,8 @@ syntax="proto3"; //消息类型命名规范：使⽤驼峰命名法，⾸字⺟�
 package mybytes;
 
 
-//定义联系人消息
+// 定义联系人消息
+// bytes的用法与string一样
 message MyBytes{
     optional bytes  opt_string = 1;  // optional
              bytes  imp_string = 2;  // implicit
