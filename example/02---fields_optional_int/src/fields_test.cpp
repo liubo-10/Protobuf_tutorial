@@ -48,6 +48,11 @@ int main()
     cout << "----------------设0判断------------------" << endl;
     cout << "has_opt_number: " << testnumber.has_opt_number() << endl; //结果为1
 
+
+
+
+    
+
     return 0;
 }
 
