@@ -129,7 +129,7 @@ optional string foo = 1;
 
 
 
-### 隐式字符字段 (proto3)
+### 隐式字符串字段 (proto3)
 
 ```protobuf
 string foo = 1;
@@ -156,6 +156,55 @@ string foo = 1;
 - string* release_foo（）：
 
 缺少has_foo()，其他和optional string一样的
+
+
+
+
+
+### Optional枚举字段 (proto2 and proto3)
+
+
+
+```protobuf
+enum Bar {
+  BAR_UNSPECIFIED = 0;
+  BAR_VALUE = 1;
+  BAR_OTHER_VALUE = 2;
+}
+
+optional Bar foo = 1;
+required Bar foo = 1;
+```
+
+编译器将生成以下访问器方法：
+
+- bool has_foo（）const：
+
+  如果设置了字段，则返回true。
+
+- Bar foo（）const：
+
+  返回字段的当前值。如果未设置该字段，则返回默认值。
+
+- void set_foo（条形值）：
+
+  设置字段的值。调用此函数后，has_foo（）将返回true，而foo（）则返回value。在调试模式下（即未定义NDEBUG），如果值与为Bar定义的任何值都不匹配，则此方法将中止该过程。
+
+- void clear_foo（）：
+
+  清除字段的值。调用后，has_foo（）将返回false，而foo（）则返回默认值。
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
