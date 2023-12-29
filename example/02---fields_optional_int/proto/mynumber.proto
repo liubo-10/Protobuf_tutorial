@@ -5,5 +5,5 @@ package mynumber;
 //定义联系人消息
 message MyNumber{
     optional int32  opt_number=1;  // optional
-    int32           imp_number=2;  // implicit
+             int32  imp_number=2;  // implicit
 }

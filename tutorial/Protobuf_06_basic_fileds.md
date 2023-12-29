@@ -62,17 +62,12 @@ int32 foo = 1;  // no field label specified, defaults to implicit presence.
 
 - int32 foo（）const：
 
-  返回字段的当前值。如果未设置该字段，则返回0。
-
 - void set_foo（int32 value）：
-
-  设置字段的值。调用此函数后，foo（）将返回值。
 
 - void clear_foo（）：
 
-  清除字段的值。调用此函数后，foo（）将返回0。
 
-缺少has_foo()
+缺少has_foo()，其他和optional int32一样的
 
 对于其他数值字段类型（包括bool），根据标量值类型表，将int32替换为相应的C++类型。
 
@@ -80,17 +75,7 @@ int32 foo = 1;  // no field label specified, defaults to implicit presence.
 
 
 
-
-
-
-
-
-
-
-
-
-
-### optional 字符串字段
+### optional 字符串字段(proto2 and proto3)
 
 ```protobuf
 optional string foo = 1;
@@ -144,37 +129,33 @@ optional string foo = 1;
 
 
 
+### 隐式字符字段 (proto3)
 
+```protobuf
+string foo = 1;
+```
 
+编译器将生成以下访问器方法：
 
+- const string& foo（）const：
 
+- void set_foo(const string& value)：
 
+- void set_foo(string&& value)（C++11及以上版本）：
 
+- void set_foo（const char* value）：
 
+- void set_foo（const char* value，int size）：
 
+- string* mutable_foo（）：
 
+- void clear_foo（）：
 
+- void set_allocated_foo（string* value）：
 
+- string* release_foo（）：
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+缺少has_foo()，其他和optional string一样的
 
 
 
