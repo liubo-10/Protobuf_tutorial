@@ -1,0 +1,16 @@
+syntax="proto3"; //消息类型命名规范：使⽤驼峰命名法，⾸字⺟⼤写。
+package myenum;
+
+
+
+enum MyEnum {
+    case0 = 0;
+    case1 = 1;
+    case2 = 2;
+}
+
+
+message MyCase{
+    optional MyEnum  opt_enum = 1;  // optional
+             MyEnum  imp_enum = 2;  // implicit
+}

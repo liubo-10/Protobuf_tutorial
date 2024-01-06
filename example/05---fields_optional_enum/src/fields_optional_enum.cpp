@@ -1,6 +1,12 @@
+// *********************************************************
+// file name：fields_optional_enum.cpp
+// author：liubo
+// date：2024.01.05
+// describe：
+// *********************************************************
 #include <iostream>
 #include <string>
-#include "../build/proto/mynumber.pb.h"
+#include "../build/proto/myenum.pb.h"
 
 using std::cout;
 using std::endl;
@@ -12,73 +18,73 @@ int main() {
     // compatible with the version of the headers we compiled against.
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    mynumber::MyNumber testnumber;
+    myenum::MyCase testcase;
 
     // ===================================================================
     // 默认值测试
     // 测试函数 XXX_number()
     // ===================================================================
     cout << "\n----------------默认值测试------------------" << endl;
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
+    cout << "opt_enum: " << testnumber.opt_enum() << endl;
+    cout << "imp_enum: " << testnumber.imp_enum() << endl;
 
     // ===================================================================
     // 存储值测试 
     // 测试函数 set_XXX_number()
     // ===================================================================
     cout << "\n----------------存储值测试------------------" << endl;
-    testnumber.set_opt_number(11);
-    testnumber.set_imp_number(22);
+    testnumber.set_opt_enum(11);
+    testnumber.set_imp_enum(22);
 
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
+    cout << "opt_enum: " << testnumber.opt_enum() << endl;
+    cout << "imp_enum: " << testnumber.imp_enum() << endl;
 
-    testnumber.set_opt_number(33);
-    testnumber.set_imp_number(44);
+    testnumber.set_opt_enum(33);
+    testnumber.set_imp_enum(44);
 
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
+    cout << "opt_enum: " << testnumber.opt_enum() << endl;
+    cout << "imp_enum: " << testnumber.imp_enum() << endl;
 
     // ===================================================================
     // 清除值测试 
     // 测试函数 clear_XXX_number()
-    // opt_number() imp_number() has_opt_number()结果都为0
+    // opt_enum() imp_enum() has_opt_enum()结果都为0
     // ===================================================================
     cout << "\n----------------清除值测试------------------" << endl;
     cout <<   "----------------清除之前--------------------" << endl;
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "opt_enum: " << testnumber.opt_enum() << endl;
+    cout << "imp_enum: " << testnumber.imp_enum() << endl;
+    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
 
-    testnumber.clear_opt_number();
-    testnumber.clear_imp_number();
+    testnumber.clear_opt_enum();
+    testnumber.clear_imp_enum();
     
     cout << "----------------清除之后--------------------" << endl;
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "opt_enum: " << testnumber.opt_enum() << endl;
+    cout << "imp_enum: " << testnumber.imp_enum() << endl;
+    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
 
     // ===================================================================
     // 有无赋值测试 
-    // 测试函数 has_opt_number()
-    // has_imp_number()隐式类型没有此函数
-    // set_opt_number(0),赋值与默认值相同，has_opt_number()结果为1
+    // 测试函数 has_opt_enum()
+    // has_imp_enum()隐式类型没有此函数
+    // set_opt_enum(0),赋值与默认值相同，has_opt_enum()结果为1
     // ===================================================================
     cout << "\n----------------有无赋值测试------------------" << endl;
 
-    testnumber.set_opt_number(11);
+    testnumber.set_opt_enum(11);
     cout << "------------------清除之前--------------------" << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
 
-    testnumber.clear_opt_number();
+    testnumber.clear_opt_enum();
 
     cout << "----------------清除之后--------------------" << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
 
-    testnumber.set_opt_number(0);
+    testnumber.set_opt_enum(0);
 
     cout << "----------------设0后判断有无赋值------------------" << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
 
     cout << "\n----------------end------------------" << endl;
     return 0;
