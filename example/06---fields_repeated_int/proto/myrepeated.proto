@@ -1,0 +1,6 @@
+syntax="proto3"; //消息类型命名规范：使⽤驼峰命名法，⾸字⺟⼤写。
+package myprotobuf;
+
+message MyRepeated{
+    repeated int32  repnumber = 1;
+}
