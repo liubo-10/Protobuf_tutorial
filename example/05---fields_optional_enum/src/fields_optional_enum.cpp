@@ -25,25 +25,25 @@ int main() {
     // 测试函数 XXX_number()
     // ===================================================================
     cout << "\n----------------默认值测试------------------" << endl;
-    cout << "opt_enum: " << testnumber.opt_enum() << endl;
-    cout << "imp_enum: " << testnumber.imp_enum() << endl;
+    cout << "opt_enum: " << testcase.opt_enum() << endl;
+    cout << "imp_enum: " << testcase.imp_enum() << endl;
 
     // ===================================================================
     // 存储值测试 
     // 测试函数 set_XXX_number()
     // ===================================================================
     cout << "\n----------------存储值测试------------------" << endl;
-    testnumber.set_opt_enum(11);
-    testnumber.set_imp_enum(22);
+    testcase.set_opt_enum(0);
+    testcase.set_imp_enum(0);
 
-    cout << "opt_enum: " << testnumber.opt_enum() << endl;
-    cout << "imp_enum: " << testnumber.imp_enum() << endl;
+    cout << "opt_enum: " << testcase.opt_enum() << endl;
+    cout << "imp_enum: " << testcase.imp_enum() << endl;
 
-    testnumber.set_opt_enum(33);
-    testnumber.set_imp_enum(44);
+    testcase.set_opt_enum(1);
+    testcase.set_imp_enum(1);
 
-    cout << "opt_enum: " << testnumber.opt_enum() << endl;
-    cout << "imp_enum: " << testnumber.imp_enum() << endl;
+    cout << "opt_enum: " << testcase.opt_enum() << endl;
+    cout << "imp_enum: " << testcase.imp_enum() << endl;
 
     // ===================================================================
     // 清除值测试 
@@ -52,17 +52,17 @@ int main() {
     // ===================================================================
     cout << "\n----------------清除值测试------------------" << endl;
     cout <<   "----------------清除之前--------------------" << endl;
-    cout << "opt_enum: " << testnumber.opt_enum() << endl;
-    cout << "imp_enum: " << testnumber.imp_enum() << endl;
-    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
+    cout << "opt_enum: " << testcase.opt_enum() << endl;
+    cout << "imp_enum: " << testcase.imp_enum() << endl;
+    cout << "has_opt_enum: " << testcase.has_opt_enum() << endl;
 
-    testnumber.clear_opt_enum();
-    testnumber.clear_imp_enum();
+    testcase.clear_opt_enum();
+    testcase.clear_imp_enum();
     
     cout << "----------------清除之后--------------------" << endl;
-    cout << "opt_enum: " << testnumber.opt_enum() << endl;
-    cout << "imp_enum: " << testnumber.imp_enum() << endl;
-    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
+    cout << "opt_enum: " << testcase.opt_enum() << endl;
+    cout << "imp_enum: " << testcase.imp_enum() << endl;
+    cout << "has_opt_enum: " << testcase.has_opt_enum() << endl;
 
     // ===================================================================
     // 有无赋值测试 
@@ -72,19 +72,19 @@ int main() {
     // ===================================================================
     cout << "\n----------------有无赋值测试------------------" << endl;
 
-    testnumber.set_opt_enum(11);
+    testcase.set_opt_enum(1);
     cout << "------------------清除之前--------------------" << endl;
-    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
+    cout << "has_opt_enum: " << testcase.has_opt_enum() << endl;
 
-    testnumber.clear_opt_enum();
+    testcase.clear_opt_enum();
 
     cout << "----------------清除之后--------------------" << endl;
-    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
+    cout << "has_opt_enum: " << testcase.has_opt_enum() << endl;
 
-    testnumber.set_opt_enum(0);
+    testcase.set_opt_enum(0);
 
     cout << "----------------设0后判断有无赋值------------------" << endl;
-    cout << "has_opt_enum: " << testnumber.has_opt_enum() << endl;
+    cout << "has_opt_enum: " << testcase.has_opt_enum() << endl;
 
     cout << "\n----------------end------------------" << endl;
     return 0;

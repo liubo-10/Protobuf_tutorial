@@ -18,4 +18,4 @@ mkdir -p ../build/proto
 PROTOBUF_PATH=~/00-liubo/project_my/Protobuf_tutorial/protobuf/bin
 option=--experimental_allow_proto3_optional
 
-$PROTOBUF_PATH/protoc $option -I../proto --cpp_out=../build/proto ../proto/mynumber.proto
+$PROTOBUF_PATH/protoc $option -I../proto --cpp_out=../build/proto ../proto/*.proto
