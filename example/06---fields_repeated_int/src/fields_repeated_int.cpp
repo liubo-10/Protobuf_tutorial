@@ -104,6 +104,35 @@ int main() {
         cout << "mutable_repnumber iter: " << *iter << endl;
     }
 
+
+
+
+
+    //! ********************************************************************
+    //! CopyFrom测试
+    //! 
+    //! ********************************************************************
+    myprotobuf::MyRepeated testrep_copy;
+    myprotobuf::MyRepeated testrep1;
+
+    testrep_copy = testrep;
+    for(auto iter = testrep_copy.repnumber().begin(); iter != testrep_copy.repnumber().end(); iter++) {
+        cout << "testrep_copy iter: " << *iter << endl;
+    }
+
+    testrep1.clear_repnumber();
+    testrep1.add_repnumber(10);
+    testrep1.add_repnumber(11);
+    testrep1.add_repnumber(12);
+    testrep1.add_repnumber(13);
+    testrep1.add_repnumber(14);
+
+    testrep_copy.CopyFrom(testrep1);
+    for(auto iter = testrep_copy.repnumber().begin(); iter != testrep_copy.repnumber().end(); iter++) {
+        cout << "testrep_copy iter: " << *iter << endl;
+    }
+
+
     return 0;
 }
 
