@@ -1,71 +1,64 @@
-// *********************************************************
-// file name：fields_optional_enum.cpp
-// author：liubo
-// date：2024.01.06
-// describe：
-// *********************************************************
+//！ ********************************************************************
+//！ file name： fields_optional_enum.cpp
+//！ author：    liubo
+//！ date：      2024.01.06
+//！ describe：  测试protobuf类型optional enum 
+//！             implicit enum 类型用法基本与 optional enum 一样只是少了has_XXX函数
+//！ ********************************************************************
+
 #include <iostream>
 #include <string>
-#include "../build/proto/myenum.pb.h"
+#include "../build/proto/myprotobuf.pb.h"
 
 using std::cout;
 using std::endl;
 using std::string;
-using myenum::case0;
-using myenum::case1;
-using myenum::case2;
+using myprotobuf::case0;
+using myprotobuf::case1;
+using myprotobuf::case2;
 
 int main() {
     cout << "----------------begain------------------" << endl;
-    // Verify that the version of the library that we linked against is
-    // compatible with the version of the headers we compiled against.
+    //! 验证我们链接的库版本是否与我们编译的头文件版本兼容。
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    myenum::MyCase testcase;
+    myprotobuf::MyCase testcase;
 
-    // ===================================================================
-    // 默认值测试
-    // 测试函数 XXX_number()
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 默认值测试
+    //！ 测试函数 optenum()
+    //！ ********************************************************************
     cout << "\n----------------默认值测试------------------" << endl;
-    cout << "opt_enum: " << testcase.opt_enum() << endl;
-    cout << "imp_enum: " << testcase.imp_enum() << endl;
+    cout << "optenum: " << testcase.optenum() << endl;
 
-    // ===================================================================
-    // 存储值测试 
-    // 测试函数 set_XXX_number()
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 存储值测试
+    //！ 测试函数 set_optenum()
+    //！ ********************************************************************
     cout << "\n----------------存储值测试------------------" << endl;
-    testcase.set_opt_enum(case0);
-    testcase.set_imp_enum(case0);
 
-    cout << "opt_enum: " << testcase.opt_enum() << endl;
-    cout << "imp_enum: " << testcase.imp_enum() << endl;
+    testcase.set_optenum(case0);
+    cout << "optenum: " << testcase.optenum() << endl;
 
-    testcase.set_opt_enum(case1);
-    testcase.set_imp_enum(case1);
+    testcase.set_optenum(case1);
+    cout << "optenum: " << testcase.optenum() << endl;
 
-    cout << "opt_enum: " << testcase.opt_enum() << endl;
-    cout << "imp_enum: " << testcase.imp_enum() << endl;
 
-    // ===================================================================
-    // 清除值测试 
-    // 测试函数 clear_XXX_number()
-    // opt_enum() imp_enum() has_opt_enum()结果都为0
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 清除值测试
+    //！ 测试函数 clear_optenum()
+    //！ optenum() has_optenum()结果都为0
+    //！ ********************************************************************
     cout << "\n----------------清除值测试------------------" << endl;
     cout <<   "----------------清除之前--------------------" << endl;
-    cout << "opt_enum: " << testcase.opt_enum() << endl;
-    cout << "imp_enum: " << testcase.imp_enum() << endl;
-    cout << "has_opt_enum: " << testcase.has_opt_enum() << endl;
+    cout << "optenum: " << testcase.optenum() << endl;
+    cout << "has_optenum: " << testcase.has_optenum() << endl;
 
-    testcase.clear_opt_enum();
-    testcase.clear_imp_enum();
-    
+    testcase.clear_optenum();
+
     cout << "----------------清除之后--------------------" << endl;
-    cout << "opt_enum: " << testcase.opt_enum() << endl;
-    cout << "imp_enum: " << testcase.imp_enum() << endl;
-    cout << "has_opt_enum: " << testcase.has_opt_enum() << endl;
+    cout << "optenum: " << testcase.optenum() << endl;
+    cout << "has_optenum: " << testcase.has_optenum() << endl;
 
     return 0;
 }

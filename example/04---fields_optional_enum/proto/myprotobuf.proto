@@ -1,7 +1,5 @@
 syntax="proto3"; //消息类型命名规范：使⽤驼峰命名法，⾸字⺟⼤写。
-package myenum;
-
-
+package myprotobuf;
 
 enum MyEnum {
     case0 = 0;
@@ -11,6 +9,6 @@ enum MyEnum {
 
 
 message MyCase{
-    optional MyEnum  opt_enum = 1;  // optional
-             MyEnum  imp_enum = 2;  // implicit
+    optional MyEnum  optenum = 1;  // optional
+             MyEnum  impenum = 2;  // implicit
 }
