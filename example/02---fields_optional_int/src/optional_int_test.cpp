@@ -16,8 +16,7 @@ using std::string;
 
 int main() {
     cout << "----------------begain------------------" << endl;
-    // Verify that the version of the library that we linked against is
-    // compatible with the version of the headers we compiled against.
+    //! 验证我们链接的库版本是否与我们编译的头文件版本兼容。
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
     myprotobuf::MyMessage testnumber;

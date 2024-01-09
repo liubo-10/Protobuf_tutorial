@@ -1,3 +1,11 @@
+//！ ********************************************************************
+//！ file optional_int_test.cpp
+//！ author：liubo
+//！ date：2024.01.09
+//！ describe：测试protobuf类型optional int32 
+//！           implicit int32类型用法基本与optional int32一样只是少了has_XXX函数
+//！ ********************************************************************
+
 #include <iostream>
 #include <string>
 #include "../build/proto/mystring.pb.h"
@@ -6,13 +14,12 @@ using std::cout;
 using std::endl;
 using std::string;
 
-int main()
-{
-    // Verify that the version of the library that we linked against is
-    // compatible with the version of the headers we compiled against.
+int main() {
+    cout << "----------------begain------------------" << endl;
+    //! 验证我们链接的库版本是否与我们编译的头文件版本兼容。
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    mystring::MyString test_string;
+    myprotobuf::MyMessage test_string;
 
     // ===================================================================
     // 默认值测试
