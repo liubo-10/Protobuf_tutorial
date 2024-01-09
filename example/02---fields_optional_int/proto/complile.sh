@@ -18,4 +18,8 @@ mkdir -p ../build/proto
 PROTOBUF_PATH=~/00-liubo/project_my/Protobuf_tutorial/protobuf/bin
 option=--experimental_allow_proto3_optional
 
-$PROTOBUF_PATH/protoc $option -I../proto --cpp_out=../build/proto ../proto/mynumber.proto
+# 在build目录下执行，这里的路径以build为当前路径
+# -I 同义于 --proto_path=
+# 源文件路径   ../proto
+# 目标文件路径 ../build/proto
+$PROTOBUF_PATH/protoc $option -I../proto --cpp_out=../build/proto ../proto/*.proto

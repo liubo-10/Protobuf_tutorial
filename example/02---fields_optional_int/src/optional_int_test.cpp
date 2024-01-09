@@ -1,6 +1,14 @@
+//！ ********************************************************************
+//！ file optional_int_test.cpp
+//！ author：liubo
+//！ date：2024.01.09
+//！ describe：测试protobuf类型optional int32 
+//！           implicit int32类型用法基本与optional int32一样只是少了has_XXX函数
+//！ ********************************************************************
+
 #include <iostream>
 #include <string>
-#include "../build/proto/mynumber.pb.h"
+#include "../build/proto/myprotobuf.pb.h"
 
 using std::cout;
 using std::endl;
@@ -12,73 +20,56 @@ int main() {
     // compatible with the version of the headers we compiled against.
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    mynumber::MyNumber testnumber;
+    myprotobuf::MyMessage testnumber;
 
-    // ===================================================================
-    // 默认值测试
-    // 测试函数 XXX_number()
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 默认值测试
+    //！ 测试函数 optnumber()
+    //！ ********************************************************************
     cout << "\n----------------默认值测试------------------" << endl;
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
+    cout << "optnumber: " << testnumber.optnumber() << endl; // 0
 
-    // ===================================================================
-    // 存储值测试 
-    // 测试函数 set_XXX_number()
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 存储值测试
+    //！ 测试函数 set_optnumber()
+    //！ ********************************************************************
     cout << "\n----------------存储值测试------------------" << endl;
-    testnumber.set_opt_number(11);
-    testnumber.set_imp_number(22);
+    testnumber.set_optnumber(11);
+    cout << "optnumber: " << testnumber.optnumber() << endl;
 
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
+    testnumber.set_optnumber(22);
+    cout << "optnumber: " << testnumber.optnumber() << endl;
 
-    testnumber.set_opt_number(33);
-    testnumber.set_imp_number(44);
-
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
-
-    // ===================================================================
-    // 清除值测试 
-    // 测试函数 clear_XXX_number()
-    // opt_number() imp_number() has_opt_number()结果都为0
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 清除值测试
+    //！ 测试函数 clear_optnumber()
+    //！ optnumber() has_optnumber()结果都为0
+    //！ ********************************************************************
     cout << "\n----------------清除值测试------------------" << endl;
     cout <<   "----------------清除之前--------------------" << endl;
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "optnumber: " << testnumber.optnumber() << endl;
+    cout << "has_optnumber: " << testnumber.has_optnumber() << endl;
 
-    testnumber.clear_opt_number();
-    testnumber.clear_imp_number();
+    testnumber.clear_optnumber();
     
     cout << "----------------清除之后--------------------" << endl;
-    cout << "opt_number: " << testnumber.opt_number() << endl;
-    cout << "imp_number: " << testnumber.imp_number() << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "optnumber: " << testnumber.optnumber() << endl;
+    cout << "has_optnumber: " << testnumber.has_optnumber() << endl;
 
-    // ===================================================================
-    // 有无赋值测试 
-    // 测试函数 has_opt_number()
-    // has_imp_number()隐式类型没有此函数
-    // set_opt_number(0),赋值与默认值相同，has_opt_number()结果为1
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 有无赋值测试
+    //！ 测试函数 has_optnumber()
+    //！ has_impnumber()隐式类型没有此函数
+    //！ set_optnumber(0),赋值与默认值相同，has_optnumber()结果为1
+    //！ ********************************************************************
     cout << "\n----------------有无赋值测试------------------" << endl;
-
-    testnumber.set_opt_number(11);
-    cout << "------------------清除之前--------------------" << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
-
-    testnumber.clear_opt_number();
-
+    testnumber.clear_optnumber();
     cout << "----------------清除之后--------------------" << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "has_optnumber: " << testnumber.has_optnumber() << endl;
 
-    testnumber.set_opt_number(0);
-
+    testnumber.set_optnumber(0);
     cout << "----------------设0后判断有无赋值------------------" << endl;
-    cout << "has_opt_number: " << testnumber.has_opt_number() << endl;
+    cout << "has_optnumber: " << testnumber.has_optnumber() << endl;
 
     cout << "\n----------------end------------------" << endl;
     return 0;
