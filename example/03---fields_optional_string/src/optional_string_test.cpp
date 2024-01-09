@@ -26,177 +26,105 @@ int main() {
     //！ 测试函数 optstring()
     //！ ********************************************************************
     cout << "\n----------------默认值测试------------------" << endl;
-    cout << "optnumber: " << testnumber.optnumber() << endl; // 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ===================================================================
-    // 默认值测试
-    // 测试函数 XXX_string()
-    // ===================================================================
-    cout << "----------------默认值测试------------------" << endl;
     cout << "optstring: " << teststr.optstring() << endl;
-    cout << "imp_string: " << teststr.imp_string() << endl;
 
-    // ===================================================================
-    // 存储值测试 
-    // 测试函数 void set_XXX_string(const std::string& value)
-    //
-    // 左值引用
-    // int num = 10;
-    // int &b = num;     // 正确
-    // int &c = 10;      // 错误
-    //
-    // int num = 10;
-    // const int &b = num;   // 正确
-    // const int &c = 10;    // 正确
-    // 
-    // const std::string& value = left_string_opt                  变量当作左值
-    // const std::string& value = "Hello World! left_string_opt2"  字符串当作左值
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 存储值测试
+    //！ 测试函数 void set_optstring(const std::string& value)
+    //！ 
+    //！ const std::string& value = left_string_opt             变量当作左值
+    //！ const std::string& value = "Hello World! left_value2"  字符串当作左值
+    //！ ********************************************************************
     cout << "\n----------------存储值测试------------------" << endl;
     cout <<   "----------------左值引用 1------------------" << endl;
-    string left_string_opt = "Hello World! left_string_opt1";
-    string left_string_imp = "Hello World! left_string_imp1";
-
-    teststr.set_optstring(left_string_opt);
-    teststr.set_imp_string(left_string_imp);
-
+    string left_value = "Hello World! left_value1";
+    teststr.set_optstring(left_value);
     cout << "optstring: " << teststr.optstring() << endl;
-    cout << "imp_string: " << teststr.imp_string() << endl;
 
     cout << "----------------左值引用 2------------------" << endl;
-    teststr.set_optstring("Hello World! left_string_opt2");
-    teststr.set_imp_string("Hello World! left_string_imp2");
-
+    teststr.set_optstring("Hello World! left_value2");
     cout << "optstring: " << teststr.optstring() << endl;
-    cout << "imp_string: " << teststr.imp_string() << endl;
 
-    // ===================================================================
-    // 存储值测试 
-    // 测试函数 void set_XXX_string(std::string&& value)
-    //
-    // 右值引用 C++11及以上版本
-    // int num = 10;
-    // int && a = num;    // 错误，右值引用不能初始化为左值
-    // int && a = 10;     // 正确
-    // 
-    // std::string&& value = right_string_opt      变量当作右值
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 存储值测试
+    //！ 测试函数 void set_optstring(std::string&& value)
+    //！ 右值引用 C++11及以上版本
+    //！ std::string&& value = right_string_opt      变量当作右
+    //！ ********************************************************************
     cout << "----------------右值引用--------------------" << endl;
-    string&& right_string_opt = "Hello World! right_string_opt";
-    string&& right_string_imp = "Hello World! right_string_imp";
-
-    teststr.set_optstring(right_string_opt);
-    teststr.set_imp_string(right_string_imp);
-
+    string&& right_value = "Hello World! right_value";
+    teststr.set_optstring(right_value);
     cout << "optstring: " << teststr.optstring() << endl;
-    cout << "imp_string: " << teststr.imp_string() << endl;
 
-    // ===================================================================
-    // 存储值测试 
-    // 测试函数 set_XXX_string(const char* value)
-    // 测试函数 set_XXX_string(const char* value, size_t size)
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 存储值测试
+    //！ 测试函数 set_optstring(const char* value)
+    //！ 测试函数 set_optstring(const char* value, size_t size)
+    //！ ********************************************************************
     cout << "----------------C类型字符串 1------------------" << endl;
-    const char* char_opt = "Hello World! char_opt";
-    const char* char_imp = "Hello World! char_imp";
-
-    teststr.set_optstring(char_opt);
-    teststr.set_imp_string(char_imp);
-
+    const char* char1 = "Hello World! char1";
+    teststr.set_optstring(char1);
     cout << "optstring: " << teststr.optstring() << endl;
-    cout << "imp_string: " << teststr.imp_string() << endl;
 
     cout << "----------------C类型字符串 2------------------" << endl;
-    char_opt = "o23456789";
-    char_imp = "i23456789";
-
-    teststr.set_optstring(char_opt,5);
-    teststr.set_imp_string(char_imp,5);
-
+    char1 = "123456789";
+    teststr.set_optstring(char1,5);
     cout << "optstring: " << teststr.optstring() << endl;
-    cout << "imp_string: " << teststr.imp_string() << endl;
 
-    // ===================================================================
-    // 获取指针测试 
-    // 测试函数 std::string* mutable_XXX_string()
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 获取指针测试
+    //！ 测试函数 std::string* mutable_optstring()
+    //！ sting_pt 与 teststr.optstring()指向同一地址
+    //！ ********************************************************************
     cout << "\n----------------获取指针测试------------------" << endl;
-    string* opt_sting_pt = teststr.mutable_optstring();
-    string* imp_sting_pt = teststr.mutable_imp_string();
+    teststr.set_optstring("Hello World!");
+    string* sting_pt = teststr.mutable_optstring();
+    cout << "sting_pt: " << *sting_pt << endl;
 
-    cout << "opt_sting_pt: " << *opt_sting_pt << endl;
-    cout << "imp_sting_pt: " << *imp_sting_pt << endl;
+    teststr.set_optstring("Hello World! update");
+    cout << "sting_pt: " << *sting_pt << endl;
 
-    // ===================================================================
-    // 释放指针测试 
-    // 测试函数 void release_XXX_string()
-    // opt_sting_pt_mu imp_sting_pt_mu 之前保存的指针不会被释放
-    // 执行release_XXX_string后XXX_sting_pt_mu XXX_sting_pt_rl与teststr.XXX_string()不再指向同一地址
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 释放指针测试
+    //！ 测试函数 void release_XXX_string()
+    //！ sting_pt_mu 之前保存的指针不会被释放
+    //！ 执行 release_optstring 后 sting_pt_mu sting_pt_rl与teststr.optstring()不再指向同一地址
+    //！ ********************************************************************
     cout << "\n----------------释放指针测试------------------" << endl;
     cout <<   "----------------释放指针------------------" << endl;
-
-    string* opt_sting_pt_mu = teststr.mutable_optstring();
-    string* imp_sting_pt_mu = teststr.mutable_imp_string();
-
+    
     teststr.set_optstring("Hello World!");
-    teststr.set_imp_string("Hello World!");
+    string* sting_pt_mu = teststr.mutable_optstring();
+    string* sting_pt_rl = teststr.release_optstring();
 
-    string* opt_sting_pt_rl = teststr.release_optstring();
-    string* imp_sting_pt_rl = teststr.release_imp_string();
-
-    cout << "opt_sting_pt_mu: " << *opt_sting_pt_mu << endl; // Hello World!
-    cout << "imp_sting_pt_mu: " << *imp_sting_pt_mu << endl; // Hello World!
-    cout << "opt_sting_pt_rl: " << *opt_sting_pt_rl << endl; // Hello World!
-    cout << "imp_sting_pt_rl: " << *imp_sting_pt_rl << endl; // Hello World!
+    cout << "sting_pt_mu: " << *sting_pt_mu << endl; // Hello World!
+    cout << "sting_pt_rl: " << *sting_pt_rl << endl; // Hello World!
     cout << "optstring: " << teststr.optstring() << endl; // 为空
-    cout << "imp_string: " << teststr.imp_string() << endl; // 为空
     cout << "has_optstring: " << teststr.has_optstring() << endl; // 值为0
 
     cout << "----------------重新赋值------------------" << endl;
-    teststr.set_optstring("Hello World! another");
-    teststr.set_imp_string("Hello World! another");
-
-    cout << "opt_sting_pt_mu: " << *opt_sting_pt_mu << endl; // Hello World!
-    cout << "imp_sting_pt_mu: " << *imp_sting_pt_mu << endl; // Hello World!
-    cout << "opt_sting_pt_rl: " << *opt_sting_pt_rl << endl; // Hello World!
-    cout << "imp_sting_pt_rl: " << *imp_sting_pt_rl << endl; // Hello World!
-    cout << "optstring: " << teststr.optstring() << endl; // Hello World! another
-    cout << "imp_string: " << teststr.imp_string() << endl; // Hello World! another
+    teststr.set_optstring("Hello World! update");
+    cout << "opt_sting_pt_mu: " << *sting_pt_mu << endl; // Hello World!
+    cout << "opt_sting_pt_rl: " << *sting_pt_rl << endl; // Hello World!
+    cout << "optstring: " << teststr.optstring() << endl; // Hello World! update
     cout << "has_optstring: " << teststr.has_optstring() << endl; // 值为1
 
-    // ===================================================================
-    // 清除值测试 
-    // 测试函数 void clear_XXX_string()
-    // ===================================================================
+    //！ ********************************************************************
+    //！ 清除值测试
+    //！ 测试函数 void clear_optstring()
+    //！ ********************************************************************
     cout << "\n----------------清除值------------------" << endl;
     teststr.clear_optstring();
-    teststr.clear_imp_string();
 
-    cout << "opt_sting_pt_mu: " << *opt_sting_pt_mu << endl; // Hello World!
-    cout << "imp_sting_pt_mu: " << *imp_sting_pt_mu << endl; // Hello World!
-    cout << "opt_sting_pt_rl: " << *opt_sting_pt_rl << endl; // Hello World!
-    cout << "imp_sting_pt_rl: " << *imp_sting_pt_rl << endl; // Hello World!
+    cout << "sting_pt_mu: " << *sting_pt_mu << endl; // Hello World!
+    cout << "sting_pt_rl: " << *sting_pt_rl << endl; // Hello World!
     cout << "optstring: " << teststr.optstring() << endl; // 为空
-    cout << "imp_string: " << teststr.imp_string() << endl; // 为空
     cout << "has_optstring: " << teststr.has_optstring() << endl; // 值为0
 
     // ===================================================================
     // 判断值测试 参见以上测试
     // 测试函数 void has_optstring()
-    // has_imp_string() 隐式存在没有此函数
+    // has_impstring() 隐式存在没有此函数
     // ===================================================================
 
     return 0;
