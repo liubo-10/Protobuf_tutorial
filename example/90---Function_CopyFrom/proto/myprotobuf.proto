@@ -1,0 +1,8 @@
+syntax="proto3"; //消息类型命名规范：使⽤驼峰命名法，⾸字⺟⼤写。
+package myprotobuf;
+
+//定义联系人消息
+message MyMessage{
+    optional int32  optnumber=1;  // optional
+             int32  impnumber=2;  // implicit
+}
