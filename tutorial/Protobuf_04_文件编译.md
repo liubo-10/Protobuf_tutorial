@@ -1,5 +1,3 @@
-# Protocol编译
-
 * 👋 Hi, I’m liubo
 * 👀 I’m interested in harmony
 * 🌱 I’m currently learning harmony
@@ -7,6 +5,8 @@
 * 📫 How to reach me ...
 
 
+
+# Protocol编译
 
 protobuf编译是通过编译工具protoc进行的，通过这个编译工具，我们可以把.proto文件生成go, Java, Python, C++, Ruby或者C#代码。
 
@@ -101,7 +101,7 @@ protoc  --cpp_out=./  --cpp_opt=paths=source_relative  path/*.proto
 
 
 
-### 参数使用示例
+### 使用示例
 
 ```shell
 #!/bin/sh

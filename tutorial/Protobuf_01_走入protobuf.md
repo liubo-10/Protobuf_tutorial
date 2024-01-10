@@ -1,10 +1,16 @@
-# 走入Protobuf
-
 * 👋 Hi, I’m liubo
 * 👀 I’m interested in harmony
 * 🌱 I’m currently learning harmony
 * 💞️ I’m looking to collaborate on ...
 * 📫 How to reach me ...
+
+# 走入Protobuf
+
+
+
+
+
+
 
 ## 术语
 
@@ -55,9 +61,9 @@ protobuf的核心内容包括：
 2. 二进制格式导致可读性差
 3. 缺乏自描述
 
-## 数据交互xml、json、protobuf格式比较
+## 数据交互格式的比较
 
-ProtoBuf和json或者xml，从一定意义上来说他们的作用是一样的。
+protobuf和json或者xml，从一定意义上来说他们的作用是一样的，都是数据交互的一种格式。
 
 1、json: 一般的web项目中，最流行的主要还是json。因为浏览器对于json数据支持非常好，有很多内建的函数支持。
 
