@@ -14,8 +14,7 @@ using std::string;
 
 int main() {
     cout << "----------------begain------------------" << endl;
-    // Verify that the version of the library that we linked against is
-    // compatible with the version of the headers we compiled against.
+    //! 验证我们链接的库版本是否与我们编译的头文件版本兼容。
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
     myprotobuf::MyRepeated testrep;
@@ -57,7 +56,7 @@ int main() {
     cout << "repnumber(0): " << testrep.repnumber(0) << endl;
     cout << "repnumber(1): " << testrep.repnumber(1) << endl;
     cout << "repnumber size: " << testrep.repnumber_size() << endl; // 2
-    cout << "repnumber empty: " << testrep.repnumber().empty() << endl;
+    cout << "repnumber empty: " << testrep.repnumber().empty() << endl; // 0
 
     testrep.clear_repnumber();
 
@@ -65,7 +64,7 @@ int main() {
     cout << "repnumber(0): " << testrep.repnumber(0) << endl; // 仍然有值
     cout << "repnumber(1): " << testrep.repnumber(1) << endl; // 仍然有值
     cout << "repnumber size: " << testrep.repnumber_size() << endl; // 0
-    cout << "repnumber empty: " << testrep.repnumber().empty() << endl;
+    cout << "repnumber empty: " << testrep.repnumber().empty() << endl; // 1
     cout << "----------------重新add--------------------" << endl;
     testrep.add_repnumber(30);
     testrep.add_repnumber(31);

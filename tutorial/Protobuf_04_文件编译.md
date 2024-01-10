@@ -104,12 +104,27 @@ protoc  --cpp_out=./  --cpp_opt=paths=source_relative  path/*.proto
 ### 参数使用示例
 
 ```shell
-protoc --proto_path=src --cpp_out=out  foo.proto bar.proto
+#!/bin/sh
+
+# file name:complile.sh
+# author:liubo
+# data:2023.12.21
+
+echo "---------------protoc begain compile---------------"
+
+mkdir -p ../build/proto
+
+# 定义变量
+PROTOBUF_PATH=~/00-liubo/project_my/Protobuf_tutorial/protobuf/bin
+option=--experimental_allow_proto3_optional // 使用optional类型需要此选项
+
+# 注意路径，在build目录下执行，这里的路径以build为当前路径
+# -I 同义于 --proto_path=
+# 源文件路径   ../proto
+# 目标文件路径 ../build/proto
+$PROTOBUF_PATH/protoc $option -I../proto --cpp_out=../build/proto ../proto/*.proto
+
 ```
-
-假设src文件夹中存有文件foo.prot和bar.proto。编译工具将从src目录中读取文件foo.prot和bar.proto，进行编译。将输出文件foo.pb.cpp、foo.pb.h、bar.pb.cpp、bar.pb.h写入out目录。
-
-
 
 
 

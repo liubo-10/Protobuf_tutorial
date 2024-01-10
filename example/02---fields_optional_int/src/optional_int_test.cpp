@@ -5,7 +5,6 @@
 //！ describe：测试protobuf类型optional int32 
 //！           implicit int32类型用法基本与optional int32一样只是少了has_XXX函数
 //！ ********************************************************************
-
 #include <iostream>
 #include <string>
 #include "../build/proto/myprotobuf.pb.h"
