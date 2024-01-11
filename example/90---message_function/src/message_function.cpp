@@ -6,19 +6,11 @@
 
 
 
-// void CopyFrom(const Student& from);
+// 
 // void MergeFrom(const Student& from);
 // void Clear();
 // bool IsInitialized() const;
 
-
-// bool SerializeToString(string* output) const; 
-// //将消息序列化并储存在指定的string中。注意里面的内容是二进制的，而不是文本；我们只是使用string作为一个很方便的容器。
-// bool ParseFromString(const string& data); //从给定的string解析消息。
-// bool SerializeToArray(void * data, int size) const	//将消息序列化至数组
-// bool ParseFromArray(const void * data, int size)	//从数组解析消息
-// bool SerializeToOstream(ostream* output) const; //将消息写入到给定的C++ ostream中。
-// bool ParseFromIstream(istream* input); //从给定的C++ istream解析消息。
 
 
 //！
@@ -30,18 +22,40 @@
 using std::cout;
 using std::endl;
 using std::string;
+// using myprotobuf::MOBILE;
+// using myprotobuf::HOME;
 
 int main() {
     cout << "----------------begain------------------" << endl;
     //! 验证我们链接的库版本是否与我们编译的头文件版本兼容。
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    // myprotobuf::MyMessage testnumber;
+    myprotobuf::Student Student1;
+    myprotobuf::Student Student2;
 
     //！ ********************************************************************
-    //！ 默认值测试
-    //！ 测试函数 optnumber()
+    //！ 测试函数 void CopyFrom(const Student& from);
     //！ ********************************************************************
+    Student1.set_id(1);
+    Student1.set_name("Tom");
+    Student1.set_email("qq@123");
+    Student1.add_phone()->set_number("12345");
+    Student1.mutable_phone(0)->set_type(myprotobuf::Student::MOBILE);
+
+    Student2.CopyFrom(Student1);
+
+
+    cout << "Student2.id: " << Student2.id() << endl;
+    cout << "Student2.name: " << Student2.name() << endl;
+    cout << "Student2.email: " << Student2.email() << endl;
+    cout << "Student2 number: " << Student2.mutable_phone(0)->number() << endl;
+    cout << "Student2 type: " << Student2.mutable_phone(0)->type() << endl;
+
+
+
+
+
+
     // cout << "\n----------------默认值测试------------------" << endl;
     // cout << "optnumber: " << testnumber.optnumber() << endl; // 0
 
