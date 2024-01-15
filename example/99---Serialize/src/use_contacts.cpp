@@ -39,15 +39,15 @@ int main()
         // .proto⽂件声明的package，通过protoc编译后，会为编译⽣成的C++代码声明同名的命名空间
         // 其范围是在.proto ⽂件中定义的内容
         contacts::PeopleInfo people;
-        people.set_age("20");
         people.set_name("张三");
+        people.set_age("20");
         // 调⽤序列化⽅法，将序列化后的⼆进制序列存⼊string中
         if (!people.SerializeToString(&people_str))
         {
             cout << "序列化联系⼈失败." << endl;
         }
         // 打印序列化结果
-        cout << "序列化后的 people_str: " << people_str << endl;
+        cout << "序列化后的 people_str: " << people_str << endl;//张三20
     }
 
     cout << "----------------------------------" << endl;
@@ -61,8 +61,8 @@ int main()
         }
         // 打印结果
         cout << "反序列化得到的people:" << endl;
-        cout << "Parse age: " << people.age() << endl;
-        cout << "Parse name: " << people.name() << endl;
+        cout << "Parse name: " << people.name() << endl;//张三
+        cout << "Parse age: " << people.age() << endl;//20
     }
 
     return 0;

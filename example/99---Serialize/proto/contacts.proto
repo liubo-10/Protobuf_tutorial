@@ -2,7 +2,8 @@ syntax="proto3"; //消息类型命名规范：使⽤驼峰命名法，⾸字⺟�
 package contacts;
 
 
-option optimize_for = LITE_RUNTIME;		//optimize_for是文件级别的选项，Protocol Buffer定义三种优化级别SPEED/CODE_SIZE/LITE_RUNTIME
+option optimize_for = LITE_RUNTIME;		
+//optimize_for是文件级别的选项，Protocol Buffer定义三种优化级别SPEED/CODE_SIZE/LITE_RUNTIME
 //缺省情况下是SPEED。 
 //SPEED: 表示生成的代码运行效率高，但是由此生成的代码编译后会占用更多的空间。
 //CODE_SIZE: 和SPEED恰恰相反，代码运行效率较低，但是由此生成的代码编译后会占用更少的空间，通常用于资源有限的平台，如Mobile。
