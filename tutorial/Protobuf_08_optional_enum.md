@@ -86,7 +86,6 @@ enum MyEnum {
     case2 = 2;
 }
 
-
 message MyCase{
     optional MyEnum  optenum = 1;  // optional
              MyEnum  impenum = 2;  // implicit

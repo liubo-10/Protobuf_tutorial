@@ -8,9 +8,9 @@
 
 # Protocol编译
 
-protobuf编译是通过编译工具protoc进行的，通过这个编译工具，我们可以把.proto文件生成go, Java, Python, C++, Ruby或者C#代码。
+protobuf的核心是一个后缀名为.proto文件，在proto文件中我们自定义数据结构，然后通过使用protobuf编译工具protoc编译，通过这个编译工具，我们可以把.proto文件生成go, Java, Python, C++, Ruby或者C#代码，
 
-
+对于C++生成".pb.cc"和".pb.h"两个文件。
 
 ## protoc安装
 
