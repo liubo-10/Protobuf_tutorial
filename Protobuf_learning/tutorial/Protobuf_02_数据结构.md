@@ -48,7 +48,7 @@ message SearchRequest {
 - package：标识生成目标文件的包名。在C++中表示的是命名空间。示例表示生成的类和函数在protobuf命名空间的addressbook命令空间下。
 - message：标识一条消息。会在目标文件中自动生成一个类。
 - SearchRequest：消息名，使用首字母大写作为消息名，例如SearchRequest。
-- singular：修饰词，指定字段规则
+- singular：字段修饰词，指定字段规则
 - string、int32：字段类型
 - query、page_number、results_per_page：字段名称，字段名称使用下划线分隔名称，例如song_name。
 - 1、2、3：字段编号，Protobuf编码是通过成员的唯一编号来绑定对应的数据，因此Protobuf编码后数据的体积会比较小，能够快速传输，缺点是不利于阅读

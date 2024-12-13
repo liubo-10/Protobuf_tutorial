@@ -1,5 +1,6 @@
 
 
+
 //消息类型命名规范：使⽤驼峰命名法，⾸字⺟⼤写。
 
 
@@ -12,4 +13,10 @@ package contacts;
 message PeopleInfo{
     string name=1;
     int32 age=2;
+    optional string address = 3;
 }
+
+
+
+
+https://zerozero.feishu.cn/docx/Cq9zdIHy1oks6AxLmRFcapxBnxf
