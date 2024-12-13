@@ -9,7 +9,7 @@ echo "---------------protoc begain compile---------------"
 mkdir -p ../build/proto
 
 # 定义变量
-PROTOBUF_PATH=~/00-liubo/project_my/Protobuf_tutorial/protobuf/bin
+PROTOBUF_PATH = ../bin
 #option=--experimental_allow_proto3_optional
 
 # 注意路径，在build目录下执行，这里的路径以build为当前路径
