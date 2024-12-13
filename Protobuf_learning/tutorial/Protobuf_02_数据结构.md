@@ -21,6 +21,18 @@ Protobuf中最基本的数据单元是message。在每一个message中都会有�
 
 
 
+
+
+
+
+<img src="../picture/Protobuf.png" alt="字段类型" style="zoom:80%;" />
+
+
+
+
+
+
+
 message格式：
 
 message MessageName {

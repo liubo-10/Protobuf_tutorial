@@ -1,0 +1,15 @@
+
+
+//消息类型命名规范：使⽤驼峰命名法，⾸字⺟⼤写。
+
+
+syntax="proto3"; 
+package contacts;
+
+/*Protocol begain */
+
+// defian people information
+message PeopleInfo{
+    string name=1;
+    int32 age=2;
+}
