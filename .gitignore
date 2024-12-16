@@ -4,9 +4,6 @@
 #*.a
 #temp.txt
 
-*.pb.c
-*.pb.h
-
 
 # 但否定忽略 lib.a, 尽管已经在前面忽略了 .a 文件
 #!lib.a
@@ -17,7 +14,6 @@
 CMakeFiles/
 cmake_install*
 CMakeCache*
-protobuf/lib/
 
 
 # 忽略 doc/notes.txt, 不包括 doc/server/arch.txt
