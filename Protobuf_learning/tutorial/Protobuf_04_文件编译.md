@@ -34,7 +34,7 @@ sudo apt install libprotobuf-dev protobuf-compiler
 
 
 
-![protobuf下载界面](/home/liubo/00-liubo/project_my/Protobuf_tutorial/picture/protobuf下载界面.png)
+![protobuf下载界面](../picture/protobuf下载界面.png)
 
 
 
