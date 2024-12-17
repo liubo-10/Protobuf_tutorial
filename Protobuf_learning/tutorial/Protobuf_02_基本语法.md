@@ -23,7 +23,7 @@ Protobuf中最基本的数据单元是message。在每一个message中都会有�
 
 
 
-## 消息格式
+## 一、消息格式
 
 
 
@@ -60,23 +60,11 @@ message SearchRequest {
 - 1、2、3：字段编号，Protobuf编码是通过成员的唯一编号来绑定对应的数据，因此Protobuf编码后数据的体积会比较小，能够快速传输，缺点是不利于阅读
 
 
-
-
-
-
-
-
-
-
-## 添加注释
+## 二、添加注释
 
 proto 添加注释,使用 C/C++风格的 // 或者 /* … */ 语法.
 
-
-
-
-
-## 服务
+## 三、服务
 
 如果要在RPC（Remote Procedure Call，远程过程调用）系统中使用消息类型，可以在.proto文件中定义RPC服务接口，协议缓冲区编译器将根据所选语言生成服务接口代码和存根。
 
@@ -85,8 +73,6 @@ service FooService {
   rpc GetSomething(FooRequest) returns (FooResponse);
 }
 ```
-
-
 
 更新消息类型
 
@@ -101,28 +87,16 @@ service FooService {
 - fixed32与sfixed32兼容， fixed64与sfixed64兼容。
 - …
 
-
-
-
-
-
-
-# 六、总结
+# 四、总结
 
 以上就是今天要讲的内容，本文仅仅简单介绍了lwIP的官网主页，后续会有更多内容。
 
-
-
-# 七、参考资料
+# 五、参考资料
 
 版权声明：本文参考了其他资料和CSDN博主的文章，遵循CC 4.0 BY-SA版权协议，现附上原文出处链接及本声明。
 一、 http
 二、 htt
 三、 LwI
-
-
-
-
 
 
 
